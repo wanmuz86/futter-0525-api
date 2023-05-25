@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app3/movie_search.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'detail.dart';
 // stful + home (HomePage)
 // stful + detail (DetailPage)
 class HomePage extends StatefulWidget {
@@ -63,6 +64,13 @@ class _HomePageState extends State<HomePage> {
                       subtitle: Text(movies[index].year),
                       leading: Image.network(movies[index].posterUrl),
                       trailing: Icon(Icons.chevron_right),
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailPage(
+                          imdbId: movies[index].imdbId,
+
+                        )));
+
+                      },
                     );
                   }),
             )
